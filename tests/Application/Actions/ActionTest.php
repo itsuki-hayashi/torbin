@@ -13,7 +13,7 @@ use Tests\TestCase;
 
 class ActionTest extends TestCase
 {
-    public function testActionSetsHttpCodeInRespond()
+    public function testActionSetsHttpCodeInRespond(): void
     {
         $app = $this->getAppInstance();
         $container = $app->getContainer();
@@ -46,7 +46,7 @@ class ActionTest extends TestCase
         $this->assertEquals(202, $response->getStatusCode());
     }
 
-    public function testActionSetsHttpCodeRespondData()
+    public function testActionSetsHttpCodeRespondData(): void
     {
         $app = $this->getAppInstance();
         $container = $app->getContainer();

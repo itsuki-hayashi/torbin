@@ -12,7 +12,7 @@ use Tests\TestCase;
 
 class ListUserActionTest extends TestCase
 {
-    public function testAction()
+    public function testAction(): void
     {
         $app = $this->getAppInstance();
 

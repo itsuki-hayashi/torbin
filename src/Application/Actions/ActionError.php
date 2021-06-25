@@ -24,7 +24,7 @@ class ActionError implements JsonSerializable
     private $type;
 
     /**
-     * @var string
+     * @var string|null
      */
     private $description;
 
@@ -59,7 +59,7 @@ class ActionError implements JsonSerializable
     /**
      * @return string
      */
-    public function getDescription(): string
+    public function getDescription(): ?string
     {
         return $this->description;
     }
@@ -75,7 +75,7 @@ class ActionError implements JsonSerializable
     }
 
     /**
-     * @return array<string, string>
+     * @return array<string, string|null>
      */
     public function jsonSerialize()
     {
