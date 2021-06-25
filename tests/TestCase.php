@@ -60,9 +60,9 @@ class TestCase extends PHPUnit_TestCase
     /**
      * @param string $method
      * @param string $path
-     * @param array  $headers
-     * @param array  $cookies
-     * @param array  $serverParams
+     * @param array<mixed>  $headers
+     * @param array<mixed>  $cookies
+     * @param array<mixed>  $serverParams
      * @return Request
      */
     protected function createRequest(

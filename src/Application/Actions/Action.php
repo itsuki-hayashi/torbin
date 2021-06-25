@@ -28,7 +28,7 @@ abstract class Action
     protected $response;
 
     /**
-     * @var array
+     * @var array<mixed>
      */
     protected $args;
 
@@ -43,7 +43,7 @@ abstract class Action
     /**
      * @param Request $request
      * @param Response $response
-     * @param array $args
+     * @param array<mixed> $args
      * @return Response
      * @throws HttpNotFoundException
      * @throws HttpBadRequestException
@@ -69,7 +69,7 @@ abstract class Action
     abstract protected function action(): Response;
 
     /**
-     * @return array|object
+     * @return array<mixed>|object
      * @throws HttpBadRequestException
      */
     protected function getFormData()
@@ -98,7 +98,7 @@ abstract class Action
     }
 
     /**
-     * @param array|object|null $data
+     * @param array<mixed>|object|null $data
      * @param int $statusCode
      * @return Response
      */

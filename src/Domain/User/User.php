@@ -74,7 +74,7 @@ class User implements JsonSerializable
     }
 
     /**
-     * @return array
+     * @return array<string, int|string|null>
      */
     public function jsonSerialize()
     {

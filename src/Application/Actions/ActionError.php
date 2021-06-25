@@ -74,7 +74,7 @@ class ActionError implements JsonSerializable
     }
 
     /**
-     * @return array
+     * @return array<string, string>
      */
     public function jsonSerialize()
     {
