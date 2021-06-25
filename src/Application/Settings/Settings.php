@@ -9,7 +9,7 @@ class Settings implements SettingsInterface
     /**
      * @var array<string, mixed>
      */
-    private $settings;
+    private array $settings;
 
     /**
      * Settings constructor.

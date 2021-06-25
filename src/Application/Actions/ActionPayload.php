@@ -8,20 +8,12 @@ use JsonSerializable;
 
 class ActionPayload implements JsonSerializable
 {
-    /**
-     * @var int
-     */
-    private $statusCode;
-
+    private int $statusCode;
     /**
      * @var array<mixed>|object|null
      */
     private $data;
-
-    /**
-     * @var ActionError|null
-     */
-    private $error;
+    private ?ActionError $error;
 
     /**
      * @param int                   $statusCode
