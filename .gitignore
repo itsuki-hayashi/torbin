@@ -102,3 +102,12 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Slim Framework .gitignore rules
+.idea/
+.vscode/
+/coverage/
+/vendor/
+/logs/*
+!/logs/README.md
+.phpunit.result.cache
