@@ -10,6 +10,9 @@ jobs:
       fail-fast: false
       matrix:
         php: [7.4, 8.0]
+        include:
+          - php: 8.0
+            analysis: true
 
     steps:
       - name: Checkout
@@ -24,11 +27,21 @@ jobs:
       - name: Install dependencies with Composer
         uses: ramsey/composer-install@v1
 
-      - name: Coding standards
-        run: composer lint
+      - name: Coding 
+        if: matrix.analysis
+        run: vendor/bin/phpcs
 
       - name: Static analysis
-        run: composer analyse
+        if: matrix.analysis
+        run: vendor/bin/phpstan analyse
 
       - name: Tests
-        run: vendor/bin/phpunit
+        run: vendor/bin/phpunit --coverage-clover clover.xml
+
+      - name: Upload coverage results to Coveralls
+        if: matrix.analysis
+        env:
+          COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_TOKEN }}
+        run: |
+          composer require php-coveralls/php-coveralls -n
+          vendor/bin/php-coveralls --coverage_clover=clover.xml -v
