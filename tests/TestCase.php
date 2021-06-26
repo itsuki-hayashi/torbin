@@ -20,6 +20,7 @@ use Webmozart\Assert\Assert;
 class TestCase extends PHPUnit_TestCase
 {
     use ProphecyTrait;
+
     /**
      * @return App
      * @throws Exception
