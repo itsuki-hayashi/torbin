@@ -7,6 +7,7 @@ namespace Tests;
 use DI\ContainerBuilder;
 use Exception;
 use PHPUnit\Framework\TestCase as PHPUnit_TestCase;
+use Prophecy\PhpUnit\ProphecyTrait;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\App;
 use Slim\Factory\AppFactory;
@@ -18,6 +19,7 @@ use Webmozart\Assert\Assert;
 
 class TestCase extends PHPUnit_TestCase
 {
+    use ProphecyTrait;
     /**
      * @return App
      * @throws Exception
