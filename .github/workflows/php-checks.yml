@@ -25,12 +25,10 @@ jobs:
         uses: ramsey/composer-install@v1
 
       - name: Coding standards
-        if: matrix.analysis
-        run: vendor/bin/phpcs
+        run: composer lint
 
       - name: Static analysis
-        if: matrix.analysis
-        run: vendor/bin/phpstan analyse
+        run: composer analyse
 
       - name: Tests
         run: vendor/bin/phpunit
