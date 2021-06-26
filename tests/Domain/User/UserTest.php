@@ -34,10 +34,10 @@ class UserTest extends TestCase
     {
         $user = new User($id, $username, $firstName, $lastName);
 
-        $this->assertEquals($id, $user->getId());
-        $this->assertEquals($username, $user->getUsername());
-        $this->assertEquals($firstName, $user->getFirstName());
-        $this->assertEquals($lastName, $user->getLastName());
+        self::assertEquals($id, $user->getId());
+        self::assertEquals($username, $user->getUsername());
+        self::assertEquals($firstName, $user->getFirstName());
+        self::assertEquals($lastName, $user->getLastName());
     }
 
     /**
@@ -58,6 +58,6 @@ class UserTest extends TestCase
             'lastName' => $lastName,
         ]);
 
-        $this->assertEquals($expectedPayload, json_encode($user));
+        self::assertEquals($expectedPayload, json_encode($user));
     }
 }

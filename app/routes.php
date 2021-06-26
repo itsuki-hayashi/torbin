@@ -9,18 +9,18 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\App;
 use Slim\Interfaces\RouteCollectorProxyInterface as Group;
 
-return function (App $app) {
-    $app->options('/{routes:.*}', function (Request $request, Response $response) {
+return function (App $app): void {
+    $app->options('/{routes:.*}', function (Request $request, Response $response): Response {
         // CORS Pre-Flight OPTIONS Request Handler
         return $response;
     });
 
-    $app->get('/', function (Request $request, Response $response) {
+    $app->get('/', function (Request $request, Response $response): Response {
         $response->getBody()->write('Hello world!');
         return $response;
     });
 
-    $app->group('/users', function (Group $group) {
+    $app->group('/users', function (Group $group): void {
         $group->get('', ListUsersAction::class);
         $group->get('/{id}', ViewUserAction::class);
     });

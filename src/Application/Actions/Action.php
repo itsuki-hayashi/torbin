@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Application\Actions;
 
 use App\Domain\DomainException\DomainRecordNotFoundException;
+use JsonException;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Log\LoggerInterface;
@@ -61,9 +62,9 @@ abstract class Action
      */
     protected function getFormData()
     {
-        $input = json_decode(file_get_contents('php://input'));
-
-        if (json_last_error() !== JSON_ERROR_NONE) {
+        try {
+            $input = json_decode(file_get_contents('php://input'), false, 512, JSON_THROW_ON_ERROR);
+        } catch (JsonException $e) {
             throw new HttpBadRequestException($this->request, 'Malformed JSON input.');
         }
 

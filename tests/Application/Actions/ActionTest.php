@@ -43,7 +43,7 @@ class ActionTest extends TestCase
         $request = $this->createRequest('GET', '/test-action-response-code');
         $response = $app->handle($request);
 
-        $this->assertEquals(202, $response->getStatusCode());
+        self::assertEquals(202, $response->getStatusCode());
     }
 
     public function testActionSetsHttpCodeRespondData(): void
@@ -74,6 +74,6 @@ class ActionTest extends TestCase
         $request = $this->createRequest('GET', '/test-action-response-code');
         $response = $app->handle($request);
 
-        $this->assertEquals(202, $response->getStatusCode());
+        self::assertEquals(202, $response->getStatusCode());
     }
 }

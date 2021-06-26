@@ -36,6 +36,6 @@ class ListUserActionTest extends TestCase
         $expectedPayload = new ActionPayload(200, [$user]);
         $serializedPayload = json_encode($expectedPayload, JSON_PRETTY_PRINT);
 
-        $this->assertEquals($serializedPayload, $payload);
+        self::assertEquals($serializedPayload, $payload);
     }
 }

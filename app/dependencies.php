@@ -10,9 +10,9 @@ use Monolog\Processor\UidProcessor;
 use Psr\Container\ContainerInterface;
 use Psr\Log\LoggerInterface;
 
-return function (ContainerBuilder $containerBuilder) {
+return function (ContainerBuilder $containerBuilder): void {
     $containerBuilder->addDefinitions([
-        LoggerInterface::class => function (ContainerInterface $c) {
+        LoggerInterface::class => function (ContainerInterface $c): Logger {
             $settings = $c->get(SettingsInterface::class);
 
             $loggerSettings = $settings->get('logger');
