@@ -11,6 +11,8 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Log\LoggerInterface;
 use Slim\Exception\HttpBadRequestException;
 use Slim\Exception\HttpNotFoundException;
+use Webmozart\Assert\Assert;
+
 
 abstract class Action
 {
@@ -63,7 +65,9 @@ abstract class Action
     protected function getFormData()
     {
         try {
-            $input = json_decode(file_get_contents('php://input'), false, 512, JSON_THROW_ON_ERROR);
+            $file = file_get_contents('php://input');
+            Assert::notFalse($file, 'Failed to get form data.');
+            $input = json_decode($file, false, 512, JSON_THROW_ON_ERROR);
         } catch (JsonException $e) {
             throw new HttpBadRequestException($this->request, 'Malformed JSON input.');
         }

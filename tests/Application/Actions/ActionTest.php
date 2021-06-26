@@ -10,6 +10,7 @@ use DateTimeImmutable;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Log\LoggerInterface;
 use Tests\TestCase;
+use Webmozart\Assert\Assert;
 
 class ActionTest extends TestCase
 {
@@ -17,6 +18,8 @@ class ActionTest extends TestCase
     {
         $app = $this->getAppInstance();
         $container = $app->getContainer();
+        Assert::notNull($container, '$container is null.');
+
         $logger = $container->get(LoggerInterface::class);
 
         $testAction = new class ($logger) extends Action {
@@ -50,6 +53,7 @@ class ActionTest extends TestCase
     {
         $app = $this->getAppInstance();
         $container = $app->getContainer();
+        Assert::notNull($container, '$container is null.');
         $logger = $container->get(LoggerInterface::class);
 
         $testAction = new class ($logger) extends Action {

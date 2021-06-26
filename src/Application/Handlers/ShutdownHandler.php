@@ -45,7 +45,7 @@ class ShutdownHandler
     public function __invoke(): void
     {
         $error = error_get_last();
-        if ($error) {
+        if ($error !== null) {
             $errorFile = $error['file'];
             $errorLine = $error['line'];
             $errorMessage = $error['message'];

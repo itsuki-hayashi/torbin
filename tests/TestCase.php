@@ -14,6 +14,7 @@ use Slim\Psr7\Factory\StreamFactory;
 use Slim\Psr7\Headers;
 use Slim\Psr7\Request as SlimRequest;
 use Slim\Psr7\Uri;
+use Webmozart\Assert\Assert;
 
 class TestCase extends PHPUnit_TestCase
 {
@@ -75,6 +76,7 @@ class TestCase extends PHPUnit_TestCase
     ): Request {
         $uri = new Uri('', '', 80, $path);
         $handle = fopen('php://temp', 'w+');
+        Assert::notFalse($handle, 'Failed to open file.');
         $stream = (new StreamFactory())->createStreamFromResource($handle);
 
         $h = new Headers();

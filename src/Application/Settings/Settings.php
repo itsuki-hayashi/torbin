@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Application\Settings;
 
+use Webmozart\Assert\Assert;
+
 class Settings implements SettingsInterface
 {
     /**
@@ -26,6 +28,6 @@ class Settings implements SettingsInterface
      */
     public function get(string $key = '')
     {
-        return (empty($key)) ? $this->settings : $this->settings[$key];
+        return ($key === '') ? $this->settings : $this->settings[$key];
     }
 }
