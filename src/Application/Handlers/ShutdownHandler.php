@@ -13,17 +13,17 @@ class ShutdownHandler
     /**
      * @var Request
      */
-    private $request;
+    private Request $request;
 
     /**
      * @var HttpErrorHandler
      */
-    private $errorHandler;
+    private HttpErrorHandler $errorHandler;
 
     /**
      * @var bool
      */
-    private $displayErrorDetails;
+    private bool $displayErrorDetails;
 
     /**
      * ShutdownHandler constructor.

@@ -13,7 +13,6 @@ use Slim\Exception\HttpBadRequestException;
 use Slim\Exception\HttpNotFoundException;
 use Webmozart\Assert\Assert;
 
-
 abstract class Action
 {
     protected LoggerInterface $logger;
