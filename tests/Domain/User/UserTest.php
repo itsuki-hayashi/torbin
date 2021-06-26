@@ -12,7 +12,7 @@ class UserTest extends TestCase
     /**
      * @return array<array<int|string>>
      */
-    public function userProvider()
+    public function userProvider(): array
     {
         return [
             [1, 'bill.gates', 'Bill', 'Gates'],

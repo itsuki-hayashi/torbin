@@ -70,7 +70,7 @@ class ActionError implements JsonSerializable
     /**
      * @return array<string, string|null>
      */
-    public function jsonSerialize()
+    public function jsonSerialize(): array
     {
         $payload = [
             'type' => $this->type,

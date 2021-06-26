@@ -7,6 +7,7 @@ namespace App\Application\Handlers;
 use App\Application\Actions\ActionError;
 use App\Application\Actions\ActionPayload;
 use Exception;
+use JsonException;
 use Psr\Http\Message\ResponseInterface as Response;
 use Slim\Exception\HttpBadRequestException;
 use Slim\Exception\HttpException;
@@ -22,6 +23,7 @@ class HttpErrorHandler extends SlimErrorHandler
 {
     /**
      * @inheritdoc
+     * @throws JsonException
      */
     protected function respond(): Response
     {

@@ -13,7 +13,7 @@ abstract class UserAction extends Action
     /**
      * @var UserRepository
      */
-    protected $userRepository;
+    protected UserRepository $userRepository;
 
     /**
      * @param LoggerInterface $logger

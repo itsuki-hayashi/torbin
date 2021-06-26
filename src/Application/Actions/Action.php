@@ -92,6 +92,7 @@ abstract class Action
      * @param array<mixed>|object|null $data
      * @param int $statusCode
      * @return Response
+     * @throws JsonException
      */
     protected function respondWithData($data = null, int $statusCode = 200): Response
     {
@@ -103,6 +104,7 @@ abstract class Action
     /**
      * @param ActionPayload $payload
      * @return Response
+     * @throws JsonException
      */
     protected function respond(ActionPayload $payload): Response
     {

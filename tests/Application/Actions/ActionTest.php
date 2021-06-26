@@ -7,6 +7,7 @@ namespace Tests\Application\Actions;
 use App\Application\Actions\Action;
 use App\Application\Actions\ActionPayload;
 use DateTimeImmutable;
+use Exception;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Log\LoggerInterface;
 use Tests\TestCase;
@@ -14,6 +15,9 @@ use Webmozart\Assert\Assert;
 
 class ActionTest extends TestCase
 {
+    /**
+     * @throws Exception
+     */
     public function testActionSetsHttpCodeInRespond(): void
     {
         $app = $this->getAppInstance();
@@ -49,6 +53,9 @@ class ActionTest extends TestCase
         self::assertEquals(202, $response->getStatusCode());
     }
 
+    /**
+     * @throws Exception
+     */
     public function testActionSetsHttpCodeRespondData(): void
     {
         $app = $this->getAppInstance();
