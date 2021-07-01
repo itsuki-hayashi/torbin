@@ -17,10 +17,19 @@ return function (ContainerBuilder $containerBuilder): void {
                 'logError'            => false,
                 'logErrorDetails'     => false,
                 'logger' => [
-                    'name' => 'slim-app',
+                    'name' => 'torbin',
                     'path' => isset($_ENV['docker']) ? 'php://stdout' : __DIR__ . '/../logs/app.log',
                     'level' => Logger::DEBUG,
                 ],
+                'twig' => [
+                    'debug' => false,
+                    'charset' => 'UTF-8',
+                    'strict_variables' => false,
+                    'autoescape' => 'html',
+                    'cache' => false,
+                    'auto_reload' => null,
+                    'optimizations' => -1,
+                ]
             ]);
         }
     ]);
