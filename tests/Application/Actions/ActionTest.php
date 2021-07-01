@@ -9,6 +9,7 @@ use App\Application\Actions\ActionPayload;
 use DateTimeImmutable;
 use Exception;
 use Psr\Http\Message\ResponseInterface as Response;
+use Psr\Container\ContainerInterface;
 use Psr\Log\LoggerInterface;
 use Tests\TestCase;
 use Webmozart\Assert\Assert;
@@ -22,8 +23,7 @@ class ActionTest extends TestCase
     {
         $app = $this->getAppInstance();
         $container = $app->getContainer();
-        Assert::notNull($container, '$container is null.');
-
+        Assert::isInstanceOf($container, ContainerInterface::class);
         $logger = $container->get(LoggerInterface::class);
 
         $testAction = new class ($logger) extends Action {
