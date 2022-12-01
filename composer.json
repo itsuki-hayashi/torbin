@@ -35,7 +35,7 @@
         "jangregor/phpstan-prophecy": "^0.8.1",
         "phpspec/prophecy-phpunit": "^2.0",
         "phpstan/extension-installer": "^1.1.0",
-        "phpstan/phpstan": "^0.12.85",
+        "phpstan/phpstan": "^0.12.100",
         "phpstan/phpstan-phpunit": "^0.12.22",
         "phpstan/phpstan-strict-rules": "^0.12.9",
         "phpstan/phpstan-webmozart-assert": "^0.12.12",
